@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>Login</title>
+</head>
+<body>
+
+
+	<div class="div_login">
+		<a th:href="@{/}"><img width="25px" src="pictures/logo.png"
+			alt="Home" /></a> Gain and loss of signal peptides - Tool
+	</div>
+
+	<div class="div_title"></div>
+
+	<div calss="div_login">
+		<div th:if="${param.error}">Invalid username and password.</div>
+		<div th:if="${param.logout}">You have been logged out.</div>
+		<form th:action="@{/login}" method="post">
+			<div class="div_login_menue">
+				<div>User Name :</div>
+				<div>Password:</div>
+			</div>
+			<div class="div_login_menue">
+				<div>
+					<input type="text" name="username" />
+				</div>
+				<div>
+					<input type="password" name="password" />
+				</div>
+
+			</div>
+			<div class="div_login_button">
+				<input type="submit" value="Sign In" />
+			</div>
+		</form>
+	</div>
+
+	<div class="div_bottom">© Dominik Schönhofer</div>
+
+
+
+</body>
+</html>

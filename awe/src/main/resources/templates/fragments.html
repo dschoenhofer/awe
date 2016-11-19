@@ -1,0 +1,90 @@
+<div class="div_content" th:utext="${contend}" th:fragment="info"></div>
+
+<div class="div_content" th:fragment="show">
+
+	<form method="POST">
+		<b>Select orthologous group:</b> <select name="ogs" size="1">
+			<option th:each="og : ${og_list}" th:text="${og}"></option>
+		</select>
+	</form>
+</div>
+
+<div class="div_tree" th:fragment="tree">
+
+	<form method="POST">
+		<b>Select orthologous group:</b> <select name="ogs" size="1">
+			<option th:each="og : ${og_list}" th:text="${og}"></option>
+		</select>
+	</form>
+
+	<script type="text/javascript"
+		src="http://www.ncbi.nlm.nih.gov/projects/treeview/js/treeviewer.js"></script>
+	<div id='123' class='TreeViewerApp'>
+		<a
+			href='?embedded=true&amp;toolbar=&lt;apztomcr&gt;&amp;dynamicviewport=true&amp;url=http://www.cip.ifi.lmu.de/~schoenhofer/trees/test_tree.newick'></a>
+	</div>
+</div>
+
+
+<div class="div_content" th:fragment="edit">
+	<div>
+		<h3>Dataset edit options</h3>
+	</div>
+	<div class="div_edit_option">
+		Upload OrthoDB tab separated file into the database.
+		<form method="post" th:action="@{/importOrthoDB}">
+			<input type="text" name="path" size="50" maxlength="2000" /> <input
+				type="submit" value="Upload!" />
+		</form>
+	</div>
+
+
+	<div class="div_edit_option">
+		Process 1on1 sequence alignmen within orthologous groups.
+		<form method="post" th:action="@{/alignGroups1On1}">
+			<input type="submit" value="Align!" />
+		</form>
+	</div>
+
+	<div class="div_edit_option">
+		Process a MSA for every orthologous group.
+		<form method="post" th:action="@{/alignMsa}">
+			<input type="submit" value="MSA!" />
+		</form>
+	</div>
+
+	<div class="div_edit_option">
+		Compute a phylogenetic Tree based on MSA information.
+		<form method="post" th:action="@{/computeTree}">
+			<input type="submit" value="Tree!" />
+		</form>
+	</div>
+
+	<div class="div_edit_option">
+		Download experimental approved signal peptide information.
+		<form method="post" th:action="@{/downloadSignalInfo}">
+			<input type="submit" value="Download!" />
+		</form>
+	</div>
+
+	<div class="div_edit_option">
+		Predict Signal peptides with SigPep.
+		<form method="post" th:action="@{/predictSigPep}">
+			<input type="submit" value="Predict!" />
+		</form>
+	</div>
+
+	<div class="div_edit_option">
+		Drop selected tables from database.
+		<form method="get" th:action="@{/dropTables}">
+			<input type="checkbox" name="ortho_groups" /> ortho_groups 
+			<input type="checkbox" name="proteins" /> proteins 
+			<input type="checkbox" name="alignments" /> alignments 
+			<input type="checkbox" name="sigpep" /> sigpep 
+			<input type="checkbox" name="sigpep" />	tree 
+			<input type="checkbox" name="genomes" /> genomes
+			<input type="submit" value="Drop!" />
+		</form>
+	</div>
+
+</div>
