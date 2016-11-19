@@ -4,7 +4,7 @@
 
 	<groupId>org.local</groupId>
 	<artifactId>awe</artifactId>
-	<version>1.0</version>
+	<version>0.1</version>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
