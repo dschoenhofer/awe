@@ -17,14 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 				.antMatchers(
-						"/", 
-						"/home", 
-						"/css/style.css",
-						"/pictures/home.png",
-						"/pictures/logo.png",
-						"/help",
-						"/show_og",
-						"/tree"
+						"/"
 						).permitAll()
 				.anyRequest().authenticated()
 				.and()
@@ -40,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
 		auth
 			.inMemoryAuthentication()
-				.withUser("admin").password("sigpep9").roles("USER");
+				.withUser("admin").password("nananana888!").roles("USER");
 	}
 
 }
