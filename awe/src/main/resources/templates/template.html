@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<title th:text="${title}"></title>
+</head>
+<body>
+
+	<div class="div_back">
+
+		<div class="div_login" sec:authorize="!hasRole('ROLE_USER')">
+			<a th:href="@{/}"><img width="25px" src="pictures/logo.png"
+				alt="Home" /></a> AWE
+			<form class="form_login" th:action="@{/login}" method="post">
+				<input type="submit" value="Anmelden" />
+			</form>
+		</div>
+		<div class="div_login" sec:authorize="hasRole('ROLE_USER')">
+			<a th:href="@{/}"><img width="25px" src="pictures/logo.png"
+				alt="Home" /></a> AWE
+			<form class="form_login" th:action="@{/logout}" method="post">
+				<input type="submit" value="Abmelden" />
+			</form>
+		</div>
+
+		<div class="div_title"></div>
+
+
+		<!--  Menüeinträge -->
+		<div class="div_menue">
+			<a th:href="@{/}">
+				<div class="div_sel">Nach /</div>
+			</a><a th:href="@{/test_page}">
+				<div class="div_sel">Nach /test_page</div>
+			</a>
+		</div>
+
+
+		<!--  Fragments are includes to default layout. Fragments can be found in fragments.html -->
+		<div th:switch="${fragment}">
+			<div th:case="home">
+				<div th:replace="fragments :: frag_home"></div>
+			</div>
+			<div th:case="test">
+				<div th:replace="fragments :: frag_test"></div>
+			</div>		
+		</div>
+
+
+
+		<div class="div_bottom">© Dominik Schönhofer</div>
+	</div>
+
+</body>
+</html>

@@ -4,24 +4,25 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
-<title>Login</title>
+<title>Anmelden</title>
 </head>
 <body>
 
 
 	<div class="div_login">
-
+		<a th:href="@{/}"><img width="25px" src="pictures/logo.png"
+			alt="Home" /></a> AWE
 	</div>
 
 	<div class="div_title"></div>
 
-	<div calss="div_login">
-		<div th:if="${param.error}">Invalid username and password.</div>
-		<div th:if="${param.logout}">You have been logged out.</div>
+	<div >
+		<div th:if="${param.error}">Ungültiger Benutzername oder Passwort</div>
+		<div th:if="${param.logout}">Du wurdest abgemeldet.</div>
 		<form th:action="@{/login}" method="post">
 			<div class="div_login_menue">
-				<div>User Name :</div>
-				<div>Password:</div>
+				<div>Benutzername :</div>
+				<div>Passwort:</div>
 			</div>
 			<div class="div_login_menue">
 				<div>
@@ -33,7 +34,7 @@
 
 			</div>
 			<div class="div_login_button">
-				<input type="submit" value="Sign In" />
+				<input type="submit" value="Anmelden" />
 			</div>
 		</form>
 	</div>
