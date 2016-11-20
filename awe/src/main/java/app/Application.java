@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class Application 
+public class Application /* Hallo */
 {
     public static void main( String[] args ) throws Exception
     {
